@@ -17,6 +17,8 @@ int main(){
     //test_generate_n();
     //test_remove_if();
     //test_unique();
-    test_heap();
+    //test_heap();
+    //test_sort_heap();
+    test_sort();
     return 0;
 }
