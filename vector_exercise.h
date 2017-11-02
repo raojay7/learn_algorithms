@@ -37,3 +37,14 @@ bool odd(int x);
 void test_replace_if();
 //2.5 n次填充
 void test_fill_n();
+//2.6随机生成n个元素generate
+//函数原型：generate_n(v.begin(),5,rand);向从v.begin开始的后面5个位置随机填写数据。
+void test_generate_n();
+//2.7条件移除remove_if
+//返回值相当于移除满足条件的元素后形成的新向量的end（）值。
+//函数原型：remove_if(v.begin(),v.end(),even);
+int even(int x);
+void test_remove_if();
+//2.8剔除连续重复元素unique
+//函数原型：unique(v.begin(),v.end());
+void test_unique();

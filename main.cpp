@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include "vector_exercise.h"
+#include "sort_exercise.h"
 using namespace std;
 int main(){
     //test_find();
@@ -12,6 +13,10 @@ int main(){
     //test_transform();
     //test_replace();
     //test_replace_if();
-    test_fill_n();
+    //test_fill_n();
+    //test_generate_n();
+    //test_remove_if();
+    //test_unique();
+    test_heap();
     return 0;
 }

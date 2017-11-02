@@ -230,3 +230,78 @@ void test_fill_n(){
         cout << *i << " ";//输出-1 -1 -1 -1 -1 0 0 0 0 0
     }
 }
+
+void test_generate_n(){
+    vector<int> v(10);
+    generate_n(v.begin(),5,rand);
+    vector<int>::iterator ilocation;
+    for(ilocation=v.begin();ilocation!=v.end();ilocation++)
+        cout<<*ilocation<<' ';
+    cout<<endl;
+    //输出 16807 282475249 1622650073 984943658 1144108930 0 0 0 0 0
+}
+
+int even(int x){
+    return x%2?0:1;
+}
+void test_remove_if(){
+    vector<int> v;
+    for(int i=1;i<=10;i++)
+        v.push_back(i);
+    vector<int>::iterator ilocation,result;
+    cout<<"移除前：";
+    for(ilocation=v.begin();ilocation!=v.end();ilocation++)
+        cout<<*ilocation<<' ';
+    cout<<endl;
+    result=remove_if(v.begin(),v.end(),even);
+    cout<<"移除后：";
+    for(ilocation=v.begin();ilocation!=result;ilocation++)
+        cout<<*ilocation<<' ';
+    cout<<endl;
+
+
+}
+void test_unique(){
+    vector<int> v;
+    v.push_back(2);
+
+    v.push_back(6);
+
+    v.push_back(6);
+
+    v.push_back(6);
+
+    v.push_back(9);
+
+    v.push_back(6);
+
+    v.push_back(3);
+    vector<int>::iterator ilocation,result;
+    for(ilocation=v.begin();ilocation!=v.end();ilocation++)
+
+        cout<<*ilocation<<' ';
+
+    cout<<endl<<"\n";
+    //
+    result=unique(v.begin(),v.end());
+    for(ilocation=v.begin();ilocation!=result;ilocation++)
+
+        cout<<*ilocation<<' ';
+
+    cout<<endl<<"\n";
+
+    //
+    for(ilocation=v.begin();ilocation!=v.end();ilocation++)
+
+        cout<<*ilocation<<' ';
+
+    cout<<endl<<"\n";
+    /*
+     * 输出  2 6 6 6 9 6 3
+
+            2 6 9 6 3
+
+            2 6 9 6 3 6 3
+        说明只是指针改变，原来并没有改变
+     */
+}
