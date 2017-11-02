@@ -3,6 +3,21 @@
 //
 #include "vector_exercise.h"
 
+void test_find(){
+    int num_to_find=6;
+    vector<int> v1;
+    for (int i = 0; i < 10; ++i) {
+        v1.push_back(2*i);
+    }
+    vector<int>::iterator result;
+    result=find(v1.begin(),v1.end(),num_to_find);
+    if(result==v1.end())
+        cout<<"未找到任何元素匹配"<<num_to_find<<endl;
+    else
+        cout<<"找到元素匹配"<<result-v1.begin()<<endl;
+}
+
+
 bool divby5(int x) {
 
     return x % 5 ? 0 : 1;
@@ -80,7 +95,7 @@ void search_sub() {
 
 }
 
-void search_sub_n(){
+void search_sub_n() {
     vector<int> v;
 
     v.push_back(1);
@@ -98,20 +113,120 @@ void search_sub_n(){
     v.push_back(8);
 
     for (int j = 0; j < v.size(); ++j) {
-        cout<<v[j]<<",";
+        cout << v[j] << ",";
     }
-    cout<<endl;
+    cout << endl;
     vector<int>::iterator i;
 
-    i=search_n(v.begin(),v.end(),3,8);
+    i = search_n(v.begin(), v.end(), 3, 8);
 
-    if(i!=v.end())
+    if (i != v.end())
 
-        cout<<"在v中找到3个连续的元素8"<<endl;
+        cout << "在v中找到3个连续的元素8" << endl;
 
     else
 
-        cout<<"在v中未找到3个连续的元素8"<<endl;
+        cout << "在v中未找到3个连续的元素8" << endl;
 }
 
+void test_copy() {
+    vector<int> v;
 
+    v.push_back(1);
+
+    v.push_back(3);
+
+    v.push_back(5);
+
+
+    list<int> l;
+
+    l.push_back(2);
+
+    l.push_back(4);
+
+    l.push_back(6);
+
+    l.push_back(8);
+
+    l.push_back(10);
+
+    copy(v.begin(), v.end(), l.begin());
+
+    list<int>::iterator i;
+
+    for (i = l.begin(); i != l.end(); i++)
+
+        cout << *i << ' ';
+
+    cout << endl;
+    //把2，4，6替换了，输出为1 3 5 8 10
+
+}
+
+int square(int x) {
+    return x * x;
+}
+
+void test_transform() {
+    vector<int> v1;
+    v1.push_back(1);
+    v1.push_back(3);
+    v1.push_back(5);
+
+    list<int> l(3);
+    transform(v1.begin(), v1.end(), l.begin(), square);
+    list<int>::iterator i;
+    for (i = l.begin(); i != l.end(); ++i) {
+        cout << *i << " ";
+    }
+    cout << endl;//输出1 9 25
+}
+
+void test_replace() {
+    //构造可变数组
+    vector<int> v;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(4);
+    //构造迭代器
+    vector<int>::iterator i;
+    replace(v.begin(), v.end(), 4, 100);
+    for (i = v.begin(); i != v.end(); ++i) {
+        cout << *i << " " << endl;
+    }
+    /*输出
+    1
+    2
+    3
+    100
+     */
+}
+
+bool odd(int x) {
+    return x % 2;
+}
+
+void test_replace_if() {
+    vector<int> v;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(4);
+    //构造迭代器
+    vector<int>::iterator i;
+    replace_if(v.begin(), v.end(), odd, 100);
+    for (i = v.begin(); i != v.end(); ++i) {
+        cout << *i << " " << endl;
+    }
+}
+
+void test_fill_n(){
+    vector<double> v(10);
+    fill_n(v.begin(),5,-1);
+    vector<double>::iterator i;
+    for (i = v.begin(); i !=v.end() ; ++i) {
+        cout << *i << " ";//输出-1 -1 -1 -1 -1 0 0 0 0 0
+    }
+}
